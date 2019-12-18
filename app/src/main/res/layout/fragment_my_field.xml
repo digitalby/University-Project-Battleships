@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MyField"
+    android:gravity="center">
+    <TableRow
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_0_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_0_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_1_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_1_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_2_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_2_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_3_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_3_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_4_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_4_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_5_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_5_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_6_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_6_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_7_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_7_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_8_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_8_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_0_9_0"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+        <Button
+            android:id="@+id/button_0_9_9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/battleships_cell_empty" />
+
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constructionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    android:gravity="center"
+    tools:context=".Construction">
+
+    <ImageButton
+        android:id="@+id/buttonShip4Horizontal"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 4 Horizontal"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_4_horizontal" />
+
+    <ImageButton
+        android:id="@+id/buttonShip4Vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 4 Vertical"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_4_vertical" />
+
+    <ImageButton
+        android:id="@+id/buttonShip3Horizontal"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 3 Horizontal"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_3_horizontal" />
+
+    <ImageButton
+        android:id="@+id/buttonShip3Vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 3 Vertical"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_3_vertical" />
+
+    <ImageButton
+        android:id="@+id/buttonShip2Horizontal"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 2 Horizontal"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_2_horizontal" />
+
+    <ImageButton
+        android:id="@+id/buttonShip2Vertical"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 2 Vertical"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_2_vertical" />
+
+    <ImageButton
+        android:id="@+id/buttonShip1"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Ship 1"
+        android:scaleType="center"
+        android:src="@drawable/battleships_ship_1" />
+
+</LinearLayout>
