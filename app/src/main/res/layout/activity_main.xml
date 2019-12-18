@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/myFieldFragment"
-        android:name="me.digitalby.lr5.MyField"
+        android:name="me.digitalby.lr5.FieldFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
 
     <fragment
         android:id="@+id/lobbyFragment"
-        android:name="me.digitalby.lr5.Lobby"
+        android:name="me.digitalby.lr5.LobbyFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

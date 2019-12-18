@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:layout_margin="2dp"
     android:gravity="center"
-    tools:context=".Construction">
+    tools:context=".ConstructionFragment">
 
     <ImageButton
         android:id="@+id/buttonShip4Horizontal"

@@ -5,11 +5,11 @@
     android:id="@+id/lobbyLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lobby">
+    tools:context=".LobbyFragment">
 
     <fragment
         android:id="@+id/constructionFragment"
-        android:name="me.digitalby.lr5.Construction"
+        android:name="me.digitalby.lr5.ConstructionFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="2dp"
