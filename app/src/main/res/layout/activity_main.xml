@@ -19,7 +19,7 @@
         tools:layout="@layout/fragment_my_field" />
 
     <fragment
-        android:id="@+id/lobbyFragment"
+        android:id="@+id/rightFragment"
         android:name="me.digitalby.lr5.LobbyFragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

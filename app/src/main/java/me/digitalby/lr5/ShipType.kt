@@ -7,5 +7,8 @@ enum class ShipType {
     Ship3Horizontal,
     Ship2Vertical,
     Ship2Horizontal,
-    Ship1
+    Ship1,
+    Ship2,
+    Ship3,
+    Ship4
 }
