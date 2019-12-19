@@ -202,6 +202,16 @@ class MainActivity : AppCompatActivity(),
         startActivity(intent)
     }
 
+    private fun readyToPlay() {
+        //TODO: initialize the receiver
+        val intent = Intent(this, GameActivity::class.java)
+        intent.putExtra("uid", uid)
+        val fieldString = Field.toFieldString(field)
+        intent.putExtra("fieldString", fieldString)
+        startActivity(intent)
+        finish()
+    }
+
     override fun didRequestJoinGame(sender: Fragment) {
         if(!blueprint.valid)
             return
@@ -221,17 +231,14 @@ class MainActivity : AppCompatActivity(),
                     ).show()
                     return@setPositiveButton
                 }
-                reference
-                .child("PendingGames")
-                .child(gameToJoin)
-                .addListenerForSingleValueEvent(object:ValueEventListener {
+                val gameReference = reference
+                    .child("PendingGames")
+                    .child(gameToJoin)
+                gameReference.addListenerForSingleValueEvent(object:ValueEventListener {
                     override fun onDataChange(p0: DataSnapshot) {
                         if(p0.exists()) {
-                            Toast.makeText(
-                                applicationContext,
-                                "Joining.",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            gameReference.setValue(true)
+                            readyToPlay()
                         } else {
                             Toast.makeText(
                                 applicationContext,
