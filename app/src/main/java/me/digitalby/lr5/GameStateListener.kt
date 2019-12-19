@@ -1,7 +1,6 @@
 package me.digitalby.lr5
 
-interface GameStateListener {
-    var gameState: GameState
-    var field: Field
-    fun didChangeGameState()
-}
+//interface GameStateListener {
+//    var gameState: GameState
+//    fun didChangeGameState()
+//}

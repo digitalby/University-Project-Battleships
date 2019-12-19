@@ -3,15 +3,13 @@ package me.digitalby.lr5
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_lobby.*
 
 class MainActivity : AppCompatActivity(),
-    ConstructionListener,
-    FieldListener,
-    GameStateListener{
-    override var blueprint: Blueprint? = null
+    ConstructionFragmentListener,
+    FieldFragmentListener{
+    override lateinit var blueprint: Blueprint
 
     val fieldSize = Vector2(10, 10)
 
@@ -22,50 +20,43 @@ class MainActivity : AppCompatActivity(),
         ShipType.Ship4 to 1
     )
 
-    override var gameState = GameState.Construction
-    set(value) {
-        field = value
-        didChangeGameState()
-    }
-    override var field: Field = Field(fieldSize, 20)
+    override lateinit var field: Field
 
     private var selectedShipType: ShipType? = null
+
     private lateinit var fieldFragment: FieldFragment
 
-    private lateinit var rightFragment: Fragment
-
+    private lateinit var lobbyFragment: LobbyFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        fieldFragment = supportFragmentManager.findFragmentById(R.id.myFieldFragment) as FieldFragment
+
+        fieldFragment = supportFragmentManager.findFragmentById(R.id.mainFieldFragment) as FieldFragment
         fieldFragment.listener = this
-        rightFragment = supportFragmentManager.findFragmentById(R.id.rightFragment)!!
-        didChangeGameState()
+        lobbyFragment = supportFragmentManager.findFragmentById(R.id.mainLobbyFragment) as LobbyFragment
+
+        blueprint = Blueprint(fieldSize, shipRules)
+        updateFieldFromBlueprint()
+
+
         ConstructionFragment.instance.listener = this
     }
+
     override fun didSelectCell(sender: FieldFragment, position: Vector2) {
-        when(gameState) {
-            GameState.Construction -> {
-                val blueprint = this.blueprint!!
-                if (selectedShipType == null) {
-                    blueprint.removeShip(position)
-                    updateFieldFromBlueprint()
-                } else {
-                    val selectedConstructionShipType = this.selectedShipType!!
-                    val size = Ship.shipTypeToSize(selectedConstructionShipType)
-                    val ship = Ship(position, size!!)
-                    ship.type = Ship.simplifyShipType(selectedConstructionShipType)
-                    tryPlaceShip(ship, position)
-                }
-            }
-            GameState.YourTurn -> TODO()
-            else -> return
+        if (selectedShipType == null) {
+            blueprint.removeShip(position)
+            updateFieldFromBlueprint()
+        } else {
+            val selectedConstructionShipType = this.selectedShipType!!
+            val size = Ship.shipTypeToSize(selectedConstructionShipType)
+            val ship = Ship(position, size!!)
+            ship.type = Ship.simplifyShipType(selectedConstructionShipType)
+            tryPlaceShip(ship)
         }
     }
 
-    fun tryPlaceShip(ship: Ship, position: Vector2) {
-        val blueprint = this.blueprint!!
+    private fun tryPlaceShip(ship: Ship) {
         try {
             blueprint.tryAddShip(ship)
         } catch (e: BlueprintException) {
@@ -90,32 +81,14 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
-    fun updateFieldFromBlueprint() {
-        if(blueprint == null)
-            return
-        val blueprint = this.blueprint!!
+    private fun updateFieldFromBlueprint() {
         field = blueprint.makeField()
         fieldFragment.drawField(field)
         ConstructionFragment.instance.didChangeShips(blueprint)
         if(blueprint.valid) {
-            Snackbar.make(findViewById(android.R.id.content),
-                "The blueprint is valid",
-                Snackbar.LENGTH_SHORT
-            ).show()
-        }
-    }
-
-    override fun didChangeGameState() {
-        when(gameState) {
-            GameState.Construction -> {
-                blueprint = Blueprint(fieldSize, shipRules)
-                field = blueprint!!.makeField()
-                fieldFragment.drawField(field)
-            }
-            GameState.WaitingForOpponent -> TODO()
-            GameState.YourTurn -> TODO()
-            GameState.OpponentTurn -> TODO()
-            GameState.GameOver -> TODO()
+            textViewError.text = ""
+        } else {
+            textViewError.text = getString(R.string.lobby_place_ships)
         }
     }
 }

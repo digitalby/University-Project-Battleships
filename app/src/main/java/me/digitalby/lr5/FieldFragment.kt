@@ -1,7 +1,6 @@
 package me.digitalby.lr5
 
 
-import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageButton
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.fragment_my_field.*
 
@@ -18,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_my_field.*
  */
 class FieldFragment : Fragment() {
 
-    var listener: FieldListener? = null
+    var listener: FieldFragmentListener? = null
     private val cells: List<List<Button>> by lazy {
         listOf(
             listOf(
@@ -164,7 +162,7 @@ class FieldFragment : Fragment() {
         for(i in 0 until 10) {
             for(j in 0 until 10) {
                 val cell = cells[i][j]
-                cell.setOnClickListener { _ -> listener?.didSelectCell(this, Vector2(i, j)) }
+                cell.setOnClickListener { listener?.didSelectCell(this, Vector2(i, j)) }
             }
         }
     }

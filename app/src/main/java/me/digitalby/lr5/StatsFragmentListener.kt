@@ -1,5 +1,5 @@
 package me.digitalby.lr5
 
-interface StatsListener {
+interface StatsFragmentListener {
     fun didRequestGoBack(sender: StatsFragment)
 }

@@ -12,34 +12,28 @@ import kotlinx.android.synthetic.main.fragment_lobby.*
  * A simple [Fragment] subclass.
  */
 class LobbyFragment : Fragment() {
-    companion object {
-        lateinit var instance: LobbyFragment
-            private set
-    }
 
-    var listener: LobbyListener? = null
+    private var listener: LobbyFragmentListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        instance = this
-
         return inflater.inflate(R.layout.fragment_lobby, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        buttonLogout.setOnClickListener { _ ->
+        buttonLogout.setOnClickListener {
             listener?.didRequestLogout(this)
         }
-        buttonCreateGame.setOnClickListener { _ ->
+        buttonCreateGame.setOnClickListener {
             listener?.didRequestCreateGame(this)
         }
-        buttonJoinGame.setOnClickListener { _ ->
+        buttonJoinGame.setOnClickListener {
             listener?.didRequestJoinGame(this)
         }
-        buttonStats.setOnClickListener { _ ->
+        buttonStats.setOnClickListener {
             listener?.didRequestStats(this)
         }
     }

@@ -21,7 +21,7 @@ class ConstructionFragment : Fragment(), BlueprintListener {
         lateinit var instance: ConstructionFragment
             private set
     }
-    var listener: ConstructionListener? = null
+    var listener: ConstructionFragmentListener? = null
     set(value) {
         field = value
         field?.blueprint?.listener = this
@@ -49,13 +49,13 @@ class ConstructionFragment : Fragment(), BlueprintListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        buttonShip1.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship1) }
-        buttonShip2Horizontal.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship2Horizontal) }
-        buttonShip2Vertical.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship2Vertical) }
-        buttonShip3Horizontal.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship3Horizontal) }
-        buttonShip3Vertical.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship3Vertical) }
-        buttonShip4Horizontal.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship4Horizontal) }
-        buttonShip4Vertical.setOnClickListener { _ -> listener?.didSelectShip(this, ShipType.Ship4Vertical) }
+        buttonShip1.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship1) }
+        buttonShip2Horizontal.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship2Horizontal) }
+        buttonShip2Vertical.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship2Vertical) }
+        buttonShip3Horizontal.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship3Horizontal) }
+        buttonShip3Vertical.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship3Vertical) }
+        buttonShip4Horizontal.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship4Horizontal) }
+        buttonShip4Vertical.setOnClickListener { listener?.didSelectShip(this, ShipType.Ship4Vertical) }
     }
 
     override fun didChangeShips(sender: Blueprint) {

@@ -8,7 +8,7 @@
     tools:context=".LobbyFragment">
 
     <fragment
-        android:id="@+id/constructionFragment"
+        android:id="@+id/lobbyConstructionFragment"
         android:name="me.digitalby.lr5.ConstructionFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

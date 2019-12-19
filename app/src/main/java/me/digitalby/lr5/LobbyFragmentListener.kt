@@ -3,7 +3,7 @@ package me.digitalby.lr5
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseUser
 
-interface LobbyListener {
+interface LobbyFragmentListener {
     var currentUser: FirebaseUser
     fun didRequestLogout(sender: Fragment)
     fun didRequestStats(sender: Fragment)
