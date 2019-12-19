@@ -1,6 +1,8 @@
 package me.digitalby.lr5
 
-class Ship(val origin: Vector2, val size: Vector2) {
+import java.io.Serializable
+
+class Ship(val origin: Vector2, val size: Vector2): Serializable {
 
     companion object {
         fun shipTypeToSize(shipType: ShipType): Vector2? {

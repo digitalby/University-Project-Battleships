@@ -2,7 +2,7 @@ package me.digitalby.lr5
 
 class Blueprint(val size: Vector2,
                 val rules: HashMap<ShipType, Int>? = null,
-                private val ships:ArrayList<Ship> = ArrayList<Ship>()) {
+                private val ships:ArrayList<Ship> = ArrayList()) {
 
     var listener: BlueprintListener? = null
     set(value) {
@@ -40,6 +40,11 @@ class Blueprint(val size: Vector2,
 
     fun getShips(): ArrayList<Ship> {
         return ships
+    }
+
+    fun clearShips() {
+        ships.clear()
+        listener?.didChangeShips(this)
     }
 
     fun tryAddShip(ship: Ship) {

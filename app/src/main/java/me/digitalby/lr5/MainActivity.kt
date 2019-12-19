@@ -6,20 +6,20 @@ import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.renderscript.Sampler
 import android.text.InputType
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_lobby.*
+import java.io.*
 
 class MainActivity : AppCompatActivity(),
     ConstructionFragmentListener,
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(),
         lobbyFragment = supportFragmentManager.findFragmentById(R.id.mainLobbyFragment) as LobbyFragment
         lobbyFragment.listener = this
 
-        blueprint = Blueprint(fieldSize, shipRules)
+        blueprint = Blueprint(fieldSize, shipRules, loadShips() ?: arrayListOf())
         updateFieldFromBlueprint()
 
         ConstructionFragment.instance.listener = this
@@ -103,6 +103,35 @@ class MainActivity : AppCompatActivity(),
         }
     }
 
+    private fun loadShips(): ArrayList<Ship>? {
+        return try {
+            val fileInputStream = openFileInput("ships.lr5")
+            val objectInputStream = ObjectInputStream(fileInputStream)
+            val blueprintShips = objectInputStream.readObject() as ArrayList<Ship>
+            objectInputStream.close()
+            fileInputStream.close()
+            blueprintShips
+        } catch (e: FileNotFoundException) {
+            null
+        }
+    }
+
+    private fun saveShips() {
+        try {
+            val fileOutputStream = openFileOutput("ships.lr5", Context.MODE_PRIVATE)
+            val objectOutputStream = ObjectOutputStream(fileOutputStream)
+            objectOutputStream.writeObject(blueprint.getShips())
+            objectOutputStream.close()
+            fileOutputStream.close()
+        } catch(e: InvalidClassException) {
+            Log.e("LR5", "The class is not valid. $e")
+        } catch (e: NotSerializableException) {
+            Log.e("LR5", "The class is not serializable. $e")
+        } catch (e: IOException) {
+            Log.e("LR5", "$e")
+        }
+    }
+
     private fun updateFieldFromBlueprint() {
         field = blueprint.makeField()
         fieldFragment.drawField(field)
@@ -129,6 +158,7 @@ class MainActivity : AppCompatActivity(),
             ship.type = Ship.simplifyShipType(selectedConstructionShipType)
             tryPlaceShip(ship)
         }
+        saveShips()
     }
 
     override fun didSelectShip(sender: ConstructionFragment, ship: ShipType?) {
@@ -142,6 +172,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun didRequestLogout(sender: Fragment) {
+        blueprint.clearShips()
+        saveShips()
         auth.signOut()
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
