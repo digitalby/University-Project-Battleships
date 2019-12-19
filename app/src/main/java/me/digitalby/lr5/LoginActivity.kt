@@ -6,13 +6,22 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
     private val auth = FirebaseAuth.getInstance()
+    private lateinit var googleSignInOptions: GoogleSignInOptions
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private val RC_SIGN_IN_GOOGLE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +29,14 @@ class LoginActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         if(auth.currentUser != null)
             goToLobby()
+        googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions)
+        signInWithGoogleButton.setOnClickListener { view ->
+            onClickSignUpGoogle(view)
+        }
     }
 
     private fun goToLobby() {
@@ -56,7 +73,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onClickSignUpGoogle(view: View) {
-        Toast.makeText(applicationContext,"Google",Toast.LENGTH_LONG).show()
+        val signInGoogleIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInGoogleIntent, RC_SIGN_IN_GOOGLE)
     }
 
     fun onClickSignUpFacebook(view: View) {
@@ -88,6 +106,34 @@ class LoginActivity : AppCompatActivity() {
                 return@addOnCompleteListener
             }
             goToLobby()
+        }
+    }
+
+    fun googleToFirebase(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
+        auth.signInWithCredential(credential).addOnCompleteListener { task ->
+            if(task.isSuccessful) {
+                goToLobby()
+            } else {
+                Toast.makeText(applicationContext, "Google Sign-in Error.", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode) {
+            RC_SIGN_IN_GOOGLE -> {
+                val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+                try {
+                    val account = task.getResult(ApiException::class.java)
+                    if(account != null)
+                        googleToFirebase(account)
+                } catch (e: ApiException) {
+                    Toast.makeText(applicationContext, "Google Sign-in failed: ${e.message}", Toast.LENGTH_LONG).show()
+                    return
+                }
+            }
         }
     }
 

@@ -39,12 +39,11 @@
             android:gravity="center"
             android:text="@string/text_or_sign_in_with" />
 
-        <Button
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/signInWithGoogleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_google"
-            android:onClick="onClickSignUpGoogle"/>
+            android:text="@string/button_google" />
 
         <Button
             android:id="@+id/signInWithFacebookButton"
