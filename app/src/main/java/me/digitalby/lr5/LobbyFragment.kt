@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.fragment_lobby.*
  */
 class LobbyFragment : Fragment() {
 
-    private var listener: LobbyFragmentListener? = null
+    var listener: LobbyFragmentListener? = null
+    var uid: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +37,7 @@ class LobbyFragment : Fragment() {
         buttonStats.setOnClickListener {
             listener?.didRequestStats(this)
         }
+        textViewPlayerName.text = uid
     }
 
 }

@@ -3,5 +3,14 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="lobby_place_ships">Place your ships to continue.</string>
+    <string name="lobby_place_ships">Place your ships to start playing.</string>
+    <string name="button_sign_in">Sign In</string>
+    <string name="edit_text_hint_password">Password</string>
+    <string name="edit_text_hint_email">Email</string>
+    <string name="button_github">Github</string>
+    <string name="button_facebook">Facebook</string>
+    <string name="button_google">Google</string>
+    <string name="text_or_sign_in_with">or sign in with</string>
+    <string name="button_sign_up">Sign Up</string>
+    <string name="text_dont_have_account">Don\'t have an account?</string>
 </resources>

@@ -23,38 +23,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Don't have an account?" />
+            android:text="@string/text_dont_have_account" />
 
         <Button
             android:id="@+id/signUpEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up" />
+            android:text="@string/button_sign_up"
+            android:onClick="onClickSignUpEmail"/>
 
         <TextView
             android:id="@+id/orSignInWithTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="or sign in with" />
+            android:text="@string/text_or_sign_in_with" />
 
         <Button
             android:id="@+id/signInWithGoogleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Google" />
+            android:text="@string/button_google"
+            android:onClick="onClickSignUpGoogle"/>
 
         <Button
             android:id="@+id/signInWithFacebookButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Facebook" />
+            android:text="@string/button_facebook"
+            android:onClick="onClickSignUpFacebook"/>
 
         <Button
             android:id="@+id/signInWithGithubButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Github" />
+            android:text="@string/button_github"
+            android:onClick="onClickSignUpGithub"/>
     </LinearLayout>
 
     <LinearLayout
@@ -77,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Email"
+            android:hint="@string/edit_text_hint_email"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -85,13 +89,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
+            android:hint="@string/edit_text_hint_password"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/buttonSignInEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign In" />
+            android:text="@string/button_sign_in"
+            android:onClick="onClickSignInEmail"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
