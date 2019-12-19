@@ -2,31 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/createGameMainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateGameFragment">
-
-    <Button
-        android:id="@+id/buttonCreateGoBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="5dp"
-        android:text="@android:string/cancel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".CreateGameActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:id="@+id/linearLayout2"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCreateGoBack">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/inviteInstructionTextView"
@@ -39,14 +27,17 @@
             android:id="@+id/linkEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="2dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="2dp"
             android:layout_marginBottom="10dp"
             android:editable="false"
             android:ems="10"
             android:hint="Link"
-            android:inputType="textPersonName" />
+            android:inputType="none"
+            android:textIsSelectable="true"
+            android:lines="1"
+            android:maxLines="2" />
 
         <TextView
             android:id="@+id/inviteInstruction2TextView"
@@ -56,4 +47,15 @@
             android:text="The first person to activate this code will play with you." />
     </LinearLayout>
 
+    <fragment
+        android:id="@+id/createGameField"
+        android:name="me.digitalby.lr5.FieldFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_my_field"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

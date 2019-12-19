@@ -9,7 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"
+        <activity android:name=".CreateGameActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensorLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.digitalby.lr5.MainActivity" /></activity>
+        <activity
+            android:name=".StatsActivity"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="sensorLandscape">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.digitalby.lr5.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LoginActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +34,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="sensorLandscape">
-
-        </activity>
+            android:screenOrientation="sensorLandscape" />
     </application>
 
 </manifest>

@@ -1,13 +1,24 @@
 package me.digitalby.lr5
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.Sampler
+import android.text.InputType
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_lobby.*
 
 class MainActivity : AppCompatActivity(),
@@ -17,6 +28,8 @@ class MainActivity : AppCompatActivity(),
 
     private val auth = FirebaseAuth.getInstance()
     override var currentUser = auth.currentUser
+    val database = FirebaseDatabase.getInstance()
+    val reference = database.reference
 
     override lateinit var blueprint: Blueprint
 
@@ -33,6 +46,8 @@ class MainActivity : AppCompatActivity(),
 
     private lateinit var uid: String
 
+    private lateinit var sharedPreferences: SharedPreferences
+
     private var selectedShipType: ShipType? = null
 
     private lateinit var fieldFragment: FieldFragment
@@ -42,6 +57,8 @@ class MainActivity : AppCompatActivity(),
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+
+        sharedPreferences = getSharedPreferences("me.digitalby.lr5", Context.MODE_PRIVATE)
 
         fieldFragment = supportFragmentManager.findFragmentById(R.id.mainFieldFragment) as FieldFragment
         fieldFragment.listener = this
@@ -54,10 +71,21 @@ class MainActivity : AppCompatActivity(),
         ConstructionFragment.instance.listener = this
 
         val bundle: Bundle? = intent.extras
-        uid = bundle?.getString("uid")!!
-        if(uid.isNotEmpty()) {
+        if(bundle != null) {
+            uid = bundle.getString("uid")!!
+        } else if(savedInstanceState != null) {
+            uid = savedInstanceState.getString("uid")!!
+        } else {
+            uid = sharedPreferences.getString("uid", null)!!
+        }
+        if (uid.isNotEmpty()) {
             lobbyFragment.uid = uid
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("uid", uid)
+        super.onSaveInstanceState(outState)
     }
 
     private fun tryPlaceShip(ship: Ship) {
@@ -81,8 +109,12 @@ class MainActivity : AppCompatActivity(),
         ConstructionFragment.instance.didChangeShips(blueprint)
         if(blueprint.valid) {
             textViewError.text = ""
+            buttonCreateGame.isEnabled = true
+            buttonJoinGame.isEnabled = true
         } else {
             textViewError.text = getString(R.string.lobby_place_ships)
+            buttonCreateGame.isEnabled = false
+            buttonJoinGame.isEnabled = false
         }
     }
 
@@ -117,14 +149,72 @@ class MainActivity : AppCompatActivity(),
     }
 
     override fun didRequestStats(sender: Fragment) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val edit = sharedPreferences.edit()
+        edit.putString("uid", uid)
+        edit.apply()
+        val intent = Intent(this, StatsActivity::class.java)
+        intent.putExtra("uid", uid)
+        startActivity(intent)
     }
 
     override fun didRequestCreateGame(sender: Fragment) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if(!blueprint.valid)
+            return
+        val intent = Intent(this, CreateGameActivity::class.java)
+        intent.putExtra("uid", uid)
+        val fieldString = Field.toFieldString(field)
+        intent.putExtra("fieldString", fieldString)
+        val edit = sharedPreferences.edit()
+        edit.putString("uid", uid)
+        edit.apply()
+        startActivity(intent)
     }
 
     override fun didRequestJoinGame(sender: Fragment) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if(!blueprint.valid)
+            return
+        val builder = AlertDialog.Builder(this)
+        val inputView = EditText(this)
+        inputView.inputType = InputType.TYPE_CLASS_TEXT
+        builder.setMessage("Enter the game's code to join it.")
+            .setTitle("Join Game")
+            .setView(inputView)
+            .setPositiveButton(getString(android.R.string.ok)) { _, _ ->
+                val gameToJoin = inputView.text.toString().trim()
+                if(gameToJoin.isEmpty()) {
+                    Toast.makeText(
+                        applicationContext,
+                        "The game code is empty.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@setPositiveButton
+                }
+                reference
+                .child("PendingGames")
+                .child(gameToJoin)
+                .addListenerForSingleValueEvent(object:ValueEventListener {
+                    override fun onDataChange(p0: DataSnapshot) {
+                        if(p0.exists()) {
+                            Toast.makeText(
+                                applicationContext,
+                                "Joining.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            Toast.makeText(
+                                applicationContext,
+                                "The game with this code does not exist.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onCancelled(p0: DatabaseError) {
+
+                    }
+                })
+            }.setNegativeButton(getString(android.R.string.cancel)) {_, _ ->}
+            .show()
     }
+
 }

@@ -14,6 +14,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.OAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -29,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
         if(auth.currentUser != null)
             goToLobby()
+
         googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -75,14 +77,6 @@ class LoginActivity : AppCompatActivity() {
     fun onClickSignUpGoogle(view: View) {
         val signInGoogleIntent = googleSignInClient.signInIntent
         startActivityForResult(signInGoogleIntent, RC_SIGN_IN_GOOGLE)
-    }
-
-    fun onClickSignUpFacebook(view: View) {
-        Toast.makeText(applicationContext,"Facebook",Toast.LENGTH_LONG).show()
-    }
-
-    fun onClickSignUpGithub(view: View) {
-        Toast.makeText(applicationContext,"Github",Toast.LENGTH_LONG).show()
     }
 
     fun onClickSignInEmail(view: View) {
