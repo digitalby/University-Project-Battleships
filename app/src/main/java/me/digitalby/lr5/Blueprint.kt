@@ -4,6 +4,39 @@ class Blueprint(val size: Vector2,
                 val rules: HashMap<ShipType, Int>? = null,
                 private val ships:ArrayList<Ship> = ArrayList()) {
 
+    companion object {
+        fun toParcelable(blueprint: Blueprint): HashMap<String, HashMap<String, Long>> {
+            val ret = HashMap<String, HashMap<String, Long>>()
+            var counter = 0
+            for(ship in blueprint.getShips()) {
+                val shipHashMap = HashMap<String, Long>()
+                shipHashMap["originX"] = ship.origin.x.toLong()
+                shipHashMap["originY"] = ship.origin.y.toLong()
+                shipHashMap["sizeX"] = ship.size.x.toLong()
+                shipHashMap["sizeY"] = ship.size.y.toLong()
+                ret["$counter"] = shipHashMap
+
+                counter += 1
+            }
+            return ret
+        }
+
+        fun fromParcelable(arrayList: ArrayList<HashMap<String, Long>>): ArrayList<Ship> {
+            val list = ArrayList<Ship>()
+            for(shipHashMap in arrayList) {
+                val originX = shipHashMap["originX"]!!
+                val originY = shipHashMap["originY"]!!
+                val sizeX = shipHashMap["sizeX"]!!
+                val sizeY = shipHashMap["sizeY"]!!
+                val origin = Vector2(originX.toInt(), originY.toInt())
+                val size = Vector2(sizeX.toInt(), sizeY.toInt())
+                val ship = Ship(origin, size)
+                list.add(ship)
+            }
+            return list
+        }
+    }
+
     var listener: BlueprintListener? = null
     set(value) {
         field = value

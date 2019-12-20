@@ -196,18 +196,24 @@ class MainActivity : AppCompatActivity(),
         intent.putExtra("uid", uid)
         val fieldString = Field.toFieldString(field)
         intent.putExtra("fieldString", fieldString)
+        val parcelableShips = Blueprint.toParcelable(blueprint)
+        intent.putExtra("ships", parcelableShips)
         val edit = sharedPreferences.edit()
         edit.putString("uid", uid)
         edit.apply()
         startActivity(intent)
     }
 
-    private fun readyToPlay() {
+    private fun readyToPlay(gameId: String) {
         //TODO: initialize the receiver
         val intent = Intent(this, GameActivity::class.java)
         intent.putExtra("uid", uid)
         val fieldString = Field.toFieldString(field)
         intent.putExtra("fieldString", fieldString)
+        intent.putExtra("gameId", gameId)
+        intent.putExtra("myTurn", 2L)
+        val parcelableShips = Blueprint.toParcelable(blueprint)
+        intent.putExtra("ships", parcelableShips)
         startActivity(intent)
         finish()
     }
@@ -215,6 +221,8 @@ class MainActivity : AppCompatActivity(),
     override fun didRequestJoinGame(sender: Fragment) {
         if(!blueprint.valid)
             return
+        buttonCreateGame.isEnabled = false
+        buttonJoinGame.isEnabled = false
         val builder = AlertDialog.Builder(this)
         val inputView = EditText(this)
         inputView.inputType = InputType.TYPE_CLASS_TEXT
@@ -229,6 +237,8 @@ class MainActivity : AppCompatActivity(),
                         "The game code is empty.",
                         Toast.LENGTH_SHORT
                     ).show()
+                    buttonCreateGame.isEnabled = true
+                    buttonJoinGame.isEnabled = true
                     return@setPositiveButton
                 }
                 val gameReference = reference
@@ -238,13 +248,17 @@ class MainActivity : AppCompatActivity(),
                     override fun onDataChange(p0: DataSnapshot) {
                         if(p0.exists()) {
                             gameReference.setValue(true)
-                            readyToPlay()
+                            reference.child("CurrentGames").child(gameToJoin).child("Player2").setValue(uid)
+                            reference.child("CurrentGames").child(gameToJoin)
+                            readyToPlay(gameToJoin)
                         } else {
                             Toast.makeText(
                                 applicationContext,
                                 "The game with this code does not exist.",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            buttonCreateGame.isEnabled = true
+                            buttonJoinGame.isEnabled = true
                         }
                     }
 
@@ -252,7 +266,10 @@ class MainActivity : AppCompatActivity(),
 
                     }
                 })
-            }.setNegativeButton(getString(android.R.string.cancel)) {_, _ ->}
+            }.setNegativeButton(getString(android.R.string.cancel)) {_, _ ->
+                buttonCreateGame.isEnabled = true
+                buttonJoinGame.isEnabled = true
+            }.setCancelable(false)
             .show()
     }
 
