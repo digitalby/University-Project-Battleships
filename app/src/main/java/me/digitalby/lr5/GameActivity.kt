@@ -197,6 +197,7 @@ class GameActivity : AppCompatActivity(), FieldFragmentListener {
     }
 
     private fun checkDeadShips(sender: Long) {
+        //TODO: actually check for dead ships
         checkGameOver()
     }
 
